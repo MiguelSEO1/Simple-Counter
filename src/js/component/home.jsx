@@ -7,17 +7,14 @@ const Home = () => {
 	const [isRunning, setIsRunning] = useState(true); // nueva variable de estado para indicar si el cronómetro está en funcionamiento o no
 
 	useEffect(() => {
-		
-		let interval;
-		if (isRunning == false) {
-		interval = setInterval(() => {
-		setTimer((X) => X + 1);
-		}, 100);
-		} else {
-		clearInterval(interval);
-		}
-		return () => clearInterval(interval);
-		}, [isRunning]);
+    
+		const interval = setInterval(() => {
+		  if (isRunning == false) {
+		  setTimer((x) => x + 1);
+		  }}, 100);
+		  console.log(timer)
+		  return () => clearInterval(interval); 
+	  }, [isRunning]); 
 
 
 	const reset = () => {
